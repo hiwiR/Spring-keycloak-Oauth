@@ -53,6 +53,12 @@ public class SecurityConfiguration extends KeycloakWebSecurityConfigurerAdapter
                 .authorizeRequests()
 //                .antMatchers("/customers*").hasRole("USER")
 //                .antMatchers("/admin*").hasRole("ADMIN")
-                .anyRequest().permitAll();
+                .anyRequest().authenticated()
+                .and()
+                .oauth2Login();
+    //.permitAll()
+        ;
     }
+
+
 }
